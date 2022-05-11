@@ -4,17 +4,17 @@ public class Main {
     public static void main(String[] args) {
         // Задание 1
         int year = 2021;
-        checkingTheYear(year);
+        checTheYear(year);
 
         // Задание 2
         int clientDeviceYear = 2012;
         int clientOs = 1;
-        applicationVersion(clientOs, clientDeviceYear);
+        installVersion(clientOs, clientDeviceYear);
 
         // Задание 3
         int deliveryDistance = 95;
         int day = 1;
-        delivery(day, deliveryDistance);
+        delivers(day, deliveryDistance);
 
         // Задание 4
         String doubles = "aabccddefgghiijjkk";
@@ -28,18 +28,16 @@ public class Main {
 
     // Задание 1
 
-    public static int checkingTheYear(int a) {
-        boolean leapYear = (a % 4 == 0) && (a % 100 != 0);
-        if (a % 400 == 0 || leapYear) {
+    private static void checTheYear(int a) {
+        boolean leapYear = a % 400 == 0 ||((a % 4 == 0) && (a % 100 != 0));
+        if (leapYear) {
             System.out.println(a + " год является високосным.");
-            return a;
         } else {
             System.out.println(a + " год не является високосным.");
-            return a;
         }
     }
     // Задание 2
-    public static void applicationVersion(int a, int b) {
+    private static void installVersion(int a, int b) {
         if (a == 1 && b >= 2015) {
             System.out.println("Установите версию приложения для Android по ссылке");
         } else if (a == 1 && b < 2015) {
@@ -53,7 +51,7 @@ public class Main {
 
     // Задание 3
 
-    public static void delivery(int a, int b) {
+    private static int delivers(int a, int b) {
         if (b <= 20) {
             System.out.println("Понадобится дней: " + a);
         } else if (b <= 60) {
@@ -63,10 +61,11 @@ public class Main {
         } else {
             System.out.println("Вы слишком далеко от нас))");
         }
+        return a;
     }
 
     // Задание 4
-    public static void doubleLetters(String sb) {
+    private static void doubleLetters(String sb) {
         char[] c = sb.toCharArray();
         for (int i = 0; i < c.length - 1; i++) {
             if(c[i] == c[i + 1]) {
@@ -78,7 +77,7 @@ public class Main {
     }
 
     // Задание 5
-    public static void flipOver(int[] a) {
+    private static void flipOver(int[] a) {
         for (int i = 0; i < a.length/2; i++) {
             int temp = a[i];
             a[i] = a[a.length - i - 1];
